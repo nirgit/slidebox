@@ -1,2 +1,0 @@
-# slidebox
-Created with CodeSandbox

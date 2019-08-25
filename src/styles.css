@@ -1,0 +1,120 @@
+figure {
+  margin: 0;
+}
+
+.App {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.slidebox {
+  --slidebox-height: 400px;
+
+  display: inline-block;
+  width: 100%;
+  height: var(--slidebox-height);
+  border: 2px solid purple;
+  padding: 2px;
+  position: relative;
+}
+
+.slidebox-grid {
+  /* border: 1px blue solid; */
+  box-sizing: border-box;
+  display: grid;
+  grid-template-rows: calc(var(--slidebox-height) - 50px);
+  grid-template-columns: 60px auto 60px;
+  grid-template-areas: "prev main next";
+}
+
+.slidebox-anim-container {
+  display: inline;
+}
+
+.slides-container {
+  grid-area: main;
+  overflow-y: auto;
+}
+
+.slidebox-btn {
+  width: 25px;
+  padding: 15px;
+  border: 1px solid #eee;
+}
+
+.next-slide {
+  background: rgba(250, 120, 250, 0.5);
+  grid-area: next;
+  justify-self: end;
+  align-self: center;
+}
+
+.prev-slide {
+  background: rgba(250, 120, 250, 0.5);
+  grid-area: prev;
+  justify-self: start;
+  align-self: center;
+}
+
+.nav-layout {
+  display: block;
+  margin: 0 auto;
+}
+
+.nav-bullets {
+  display: inline-block;
+  max-width: 100%;
+  min-width: 30px;
+  margin: 10px auto;
+}
+
+.slide-bullet {
+  width: 14px;
+  height: 14px;
+  background: grey;
+  display: inline-block;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+
+.slide-bullet:hover {
+  cursor: pointer;
+  background: violet;
+}
+
+.bullet-active {
+  background: purple;
+}
+
+.bullet-active:hover {
+  cursor: default;
+  background: purple;
+}
+
+/* make variants of the slidebox in different sizes */
+.slidebox-small {
+  --slidebox-height: 160px;
+}
+
+.slidebox-big {
+  --slidebox-height: 640px;
+}
+
+/* animations */
+.fade-enter {
+  opacity: 0;
+}
+
+.fade-enter.fade-enter-active {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.fade-exit {
+  opacity: 1;
+}
+
+.fade-exit.fade-exit-active {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
